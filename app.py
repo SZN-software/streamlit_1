@@ -10,7 +10,7 @@ dataset = st.container()
 # features = st.container()
 # model_prediction = st.container()
 loaded_model = load_model("my_best_pipline_1")
-print(loaded_model)
+# print(loaded_model)
 
 
 # st.cache

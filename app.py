@@ -9,15 +9,16 @@ header = st.container()
 dataset = st.container()
 # features = st.container()
 # model_prediction = st.container()
-loaded_model = load_model("my_best_pipline_1")
+
 # print(loaded_model)
 
 
-# st.cache
-# def get_data(filename):
-# 	ml_service = pickle.load(open(file_name,'rb'))
-# 	return ml_service
-
+@st.cache(allow_output_mutation=True)
+def get_data(filename):
+    loaded_model_f = load_model(filename)
+ 	# ml_service = pickle.load(open(file_name,'rb'))
+    return loaded_model_f
+loaded_model = get_data("my_best_pipline_1")
 
 
 with header:
@@ -27,6 +28,7 @@ with header:
 with dataset:
 	st.header('Model has been Trained on linear Regression')
 	st.text('dataset was given by SIR')
+    
 
 	
 
@@ -57,7 +59,7 @@ with st.form(key='my_form'):
         df_3 = pd.DataFrame(data, index=[0])   
         # printing data entered     
         st.write("Class",age,height_cm,weight_kg,body_fat,diastolic,systolic,gripForce,sit_bend_cm,sit_ups_counts,broad_jump_cm,gender_txt)
-        # model preedict
+        # model preedict        
         df1 = predict_model(loaded_model,df_3)
         # removing one of the column
         df1.drop('class_rated',inplace=True, axis=1)

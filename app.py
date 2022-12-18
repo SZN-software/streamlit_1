@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import pickle
+# import pickle
 import pandas as pd
 from pycaret.classification import load_model, predict_model
 
@@ -19,17 +19,18 @@ def get_data(filename):
  	# ml_service = pickle.load(open(file_name,'rb'))
     return loaded_model_f
 loaded_model = get_data("my_best_pipline_1")
+print("model loaded")
 
 
-with header:
-	st.title('Human data')	
+# with header:
+# 	st.title('Human data')	
 
 
-with dataset:
-	st.header('Model has been Trained on linear Regression')
-	st.text('dataset was given by SIR')
+# with dataset:
+# 	st.header('Model has been Trained on linear Regression')
+# 	st.text('dataset was given by SIR')
     
-
+print("moved fwd")
 	
 
 # with features:
